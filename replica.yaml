@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: umair-replica
+  namespace: umair
+  labels:
+    app: umair-nginx-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: umair-nginx-rs
+  template:
+    metadata:
+      labels:
+        app: umair-nginx-rs
+    spec:
+      containers:
+        - name: umair-nginx-rs
+          image: nginx:latest
+          ports:
+          - containerPort: 80

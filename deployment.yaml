@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uamir-deployment
+  namespace: umair
+spec:
+  replicas: 4
+  selector: 
+    matchLabels:
+      app: ipl
+  templates:
+    metadata:
+      labels:
+        app: ipl
+    spec:
+      containers:
+        - name: c-1
+          image:
+          ports:
+            - containerPort: 80
